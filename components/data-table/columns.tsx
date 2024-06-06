@@ -78,7 +78,7 @@ export const columns: ColumnDef<Payment>[] = [
       const task = row.getValue("task");
       const formatted = typeof task === "string" ? task.valueOf() : task;
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return <div className="text-center font-medium">{formatted}</div>;
     },
   },
   {

@@ -32,9 +32,11 @@ export default async function Page() {
   }
 
   return (
-    <div>
+    <div className="w-full flex flex-wrap flex-col items-center justify-center">
       <h1>Dashboard</h1>
-      <DataTable columns={columns} data={tableData} />
+      <div className="w-3/4">
+        <DataTable columns={columns} data={tableData} />
+      </div>
     </div>
   );
 }
