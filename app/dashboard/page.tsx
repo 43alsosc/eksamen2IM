@@ -1,3 +1,4 @@
+import { ClientToDoTable } from "@/components/data-table/client-todo-table";
 import { columns } from "@/components/data-table/columns";
 import { DataTable } from "@/components/data-table/data-table";
 import { createClient } from "@/utils/supabase/server";
@@ -35,7 +36,7 @@ export default async function Page() {
     <div className="w-full flex flex-wrap flex-col items-center justify-center">
       <h1>Dashboard</h1>
       <div className="w-3/4">
-        <DataTable columns={columns} data={tableData} />
+        <ClientToDoTable data={tableData} />
       </div>
     </div>
   );

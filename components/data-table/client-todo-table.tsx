@@ -13,11 +13,10 @@ type DataType = {
   task: string;
   completed: boolean;
 }[];
-export type Payment = {
+export type ToDo = {
   id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
+  task: string;
+  completed: boolean;
 };
 
 const supabase = createClient();
@@ -86,7 +85,7 @@ export function ClientToDoTable({ data }: { data: DataType }) {
     }
   };
 
-  const columns: ColumnDef<Payment>[] = [
+  const columns: ColumnDef<ToDo>[] = [
     {
       accessorKey: "id",
       header: () => <div className="text-center">Id</div>,

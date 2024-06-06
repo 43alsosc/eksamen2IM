@@ -5,6 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "../auth/SubmitButton";
 import { headers } from "next/headers";
+import LogInWithGitHub from "@/components/LogInWithGitHub";
 
 export default function SignUpForm() {
   const signUp = async (formData: FormData) => {
@@ -61,13 +62,16 @@ export default function SignUpForm() {
             title="Passordet må være minst 8 tegn langt, og inkludere minst én liten bokstav, én stor bokstav, ett nummer, og ett spesialtegn."
           />
         </div>
-        <SubmitButton
-          formAction={signUp}
-          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
-          pendingText="Signing Up..."
-        >
-          Sign Up
-        </SubmitButton>
+        <div className="flex justify-between">
+          <SubmitButton
+            formAction={signUp}
+            className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2 w-1/2"
+            pendingText="Signing Up..."
+          >
+            Sign Up
+          </SubmitButton>
+          <LogInWithGitHub />
+        </div>
         <div className="mt-4 text-center text-sm">
           Already have an account?
           <Link className="underline" href="/signin">

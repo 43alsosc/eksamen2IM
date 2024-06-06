@@ -4,6 +4,7 @@ import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "../auth/SubmitButton";
+import LogInWithGitHub from "@/components/LogInWithGitHub";
 
 export default function SignInForm() {
   const signIn = async (formData: FormData) => {
@@ -57,6 +58,7 @@ export default function SignInForm() {
           >
             Sign In
           </SubmitButton>
+          <LogInWithGitHub />
         </div>
         <div className="mt-4 text-center text-sm">
           Already have an account?
