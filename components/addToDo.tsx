@@ -25,21 +25,24 @@ export default function AddToDo() {
     } = await supabase.auth.getUser();
 
     // Add null check for 'user' variable
-    if (user) {
-      const { data, error } = await supabase.from("todos").insert({
-        user_id: user.id,
-        task: task,
-        completed: false,
-      });
-
-      if (error) {
-        console.log("Error inserting data: ", error);
-      } else {
-        console.log("Data inserted: ", data);
+    if (task !== "") {
+      if (user) {
+        const { data, error } = await supabase.from("todos").insert({
+          user_id: user.id,
+          task: task,
+          completed: false,
+        });
+        if (error) {
+          console.log("Error inserting data: ", error);
+        } else {
+          console.log("Data inserted: ", data);
+        }
+        console.log("Form submitted");
       }
-      console.log("Form submitted");
+      setTask("");
+    } else {
+      console.log("Task is empty");
     }
-    setTask("");
   };
 
   return (
