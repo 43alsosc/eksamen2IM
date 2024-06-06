@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/table";
 import AddToDo from "../addToDo";
 import { Button } from "../ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -36,9 +37,21 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div>
-      <div>
-        <AddToDo />
+    <div className="w-full">
+      <div className="w-full flex justify-between">
+        <div>
+          {/* Vise tabell som er "Alle, Ferdig og ikke ferdig" */}
+          <Tabs defaultValue="tasks" className="">
+            <TabsList>
+              <TabsTrigger value="all">All</TabsTrigger>
+              <TabsTrigger value="done">Done</TabsTrigger>
+              <TabsTrigger value="notDone">Not Done</TabsTrigger>
+            </TabsList>
+            <TabsContent value="all">All</TabsContent>
+            <TabsContent value="done">Done</TabsContent>
+            <TabsContent value="notDone">Not Done</TabsContent>
+          </Tabs>
+        </div>
       </div>
       <div className="rounded-md border w-full">
         <Table>
